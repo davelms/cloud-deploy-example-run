@@ -7,7 +7,7 @@ steps:
   args:
   - '-c'
   - > 
-    gcloud deploy releases create release-$BUILD_ID
+    gcloud deploy releases create release-$SHORT_SHA
     --delivery-pipeline=hello-world-app
     --region=us-central1
     --source=./
