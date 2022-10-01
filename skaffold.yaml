@@ -1,0 +1,16 @@
+---
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata: 
+  name: deploy-hello-world
+profiles:
+- name: staging
+  manifests:
+    rawYaml:
+    - run-staging.yaml
+- name: production
+  manifests:
+    rawYaml:
+    - run-production.yaml
+deploy:
+  cloudrun: {}

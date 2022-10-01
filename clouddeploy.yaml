@@ -1,0 +1,28 @@
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+ name: hello-world-app
+description: Hello World Deployment Pipeline
+serialPipeline:
+ stages:
+ - targetId: run-staging
+   profiles: [staging]
+ - targetId: run-production
+   profiles: [production]
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: run-staging
+description: Staging Environment
+run:
+ location: projects/cloud-run-example-364214/locations/us-central1
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: run-production
+description: Production environment
+run:
+ location: projects/cloud-run-example-364214/locations/us-central1

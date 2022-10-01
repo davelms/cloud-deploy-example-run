@@ -1,0 +1,10 @@
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: run-staging
+spec:
+  template:
+    spec:
+      containers:
+      - image: hello-world-app
